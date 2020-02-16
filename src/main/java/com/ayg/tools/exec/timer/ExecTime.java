@@ -7,6 +7,12 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ *  @Description： 执行时长记录
+ *  @Author: York.Hwang
+ *  @Date: 2020/2/16 22:25
+ */
 public class ExecTime {
 
     private static final Logger LOG = LoggerFactory.getLogger(ExecTime.class);
@@ -46,7 +52,7 @@ public class ExecTime {
         try {
             String key = className + methodName + methodDesc;
             long costTime = costTimeLocal.get().get(ET_FIX + key) - costTimeLocal.get().get(ST_FIX + key);
-            LOG.info(className.replace("/", ".") + "." + methodName + " cost:" + costTime);
+            LOG.info(className.replace("/", ".") + "." + methodName + " cost:" + costTime+"ms");
         } catch (Exception e){
             LOG.error(e.getMessage());
         }
