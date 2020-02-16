@@ -8,13 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.instrument.ClassFileTransformer;
-import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 
 /**
- *  @Description:方法执行时长字节码转换器
- *  @Author: York.Hwang
- *  @Date: 2020/2/15 23:49
+ * @Description:方法执行时长字节码转换器
+ * @Author: York.Hwang
+ * @Date: 2020/2/15 23:49
  */
 public class ExecTimerTransformer implements ClassFileTransformer {
 
@@ -22,16 +21,17 @@ public class ExecTimerTransformer implements ClassFileTransformer {
 
 
     private IExeCmd exeCmd;
-    public ExecTimerTransformer(IExeCmd exeCmd){
+
+    public ExecTimerTransformer(IExeCmd exeCmd) {
         super();
         this.exeCmd = exeCmd;
     }
 
 
     /**
-     *  @Description:覆盖转换方法
-     *  @Author: York.Hwang
-     *  参数说明
+     * @Description:覆写转换方法
+     * @Author: York.Hwang
+     * 参数说明
      * loader: 定义要转换的类加载器，如果是引导加载器，则为null
      * className:完全限定类内部形式的类名称和中定义的接口名称，例如"java.lang.instrument.ClassFileTransformer"
      * classBeingRedefined:如果是被重定义或重转换触发，则为重定义或重转换的类；如果是类加载，则为 null
