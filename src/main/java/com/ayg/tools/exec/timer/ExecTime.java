@@ -9,9 +9,9 @@ import java.util.Map;
 
 
 /**
- *  @Description： 执行时长记录
- *  @Author: York.Hwang
- *  @Date: 2020/2/16 22:25
+ * @Description： 执行时长记录
+ * @Author: York.Hwang
+ * @Date: 2020/2/16 22:25
  */
 public class ExecTime {
 
@@ -22,7 +22,7 @@ public class ExecTime {
     private static final String ET_FIX = "ET_"; //结束时间
 
     private ExecTime() {
-       //just for private
+        //just for private
     }
 
     public static void start(String key) {
@@ -33,7 +33,7 @@ public class ExecTime {
                 costTimeLocal.set(map);
             }
             map.put(ST_FIX + key, System.currentTimeMillis());
-        } catch (Exception e){
+        } catch (Exception e) {
             LOG.error(e.getMessage());
         }
     }
@@ -42,7 +42,7 @@ public class ExecTime {
     public static void end(String key) {
         try {
             costTimeLocal.get().put(ET_FIX + key, System.currentTimeMillis());
-        } catch (Exception e){
+        } catch (Exception e) {
             LOG.error(e.getMessage());
         }
     }
@@ -52,11 +52,10 @@ public class ExecTime {
         try {
             String key = className + methodName + methodDesc;
             long costTime = costTimeLocal.get().get(ET_FIX + key) - costTimeLocal.get().get(ST_FIX + key);
-            LOG.info(className.replace("/", ".") + "." + methodName + " cost:" + costTime+"ms");
-        } catch (Exception e){
+            LOG.info(className.replace("/", ".") + "." + methodName + " cost:" + costTime + "ms");
+        } catch (Exception e) {
             LOG.error(e.getMessage());
         }
     }
-
 
 }
