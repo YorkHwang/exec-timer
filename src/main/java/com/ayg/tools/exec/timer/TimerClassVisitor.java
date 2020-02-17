@@ -59,14 +59,12 @@ public class TimerClassVisitor extends ClassVisitor {
         return new AdviceAdapter(Opcodes.ASM5, mv, access, name, desc) {
             //方法进入时获取开始时间
             @Override public void onMethodEnter() {
-                //相当于com.blueware.agent.TimeUtil.setStartTime("key");
                 this.visitLdcInsn(key);
                 this.visitMethodInsn(Opcodes.INVOKESTATIC, "com/ayg/tools/exec/timer/ExecTime", "start", "(Ljava/lang/String;)V", false);
             }
 
             //方法退出时获取结束时间并计算执行时间
             @Override public void onMethodExit(int opcode) {
-                //相当于com.blueware.agent.TimeUtil.setEndTime("key");
                 this.visitLdcInsn(key);
                 this.visitMethodInsn(Opcodes.INVOKESTATIC, "com/ayg/tools/exec/timer/ExecTime", "end", "(Ljava/lang/String;)V", false);
                 //向栈中压入类名称
@@ -75,7 +73,6 @@ public class TimerClassVisitor extends ClassVisitor {
                 this.visitLdcInsn(name);
                 //向栈中压入方法描述
                 this.visitLdcInsn(desc);
-                //相当于com.blueware.agent.TimeUtil.getExclusiveTime("com/blueware/agent/TestTime","testTime");
                 this.visitMethodInsn(Opcodes.INVOKESTATIC, "com/ayg/tools/exec/timer/ExecTime", "execTime", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
                         false);
             }

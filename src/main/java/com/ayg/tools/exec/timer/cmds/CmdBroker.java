@@ -4,8 +4,6 @@ package com.ayg.tools.exec.timer.cmds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -18,7 +16,7 @@ public class CmdBroker implements IExeCmd {
 
     private List<IExeCmd> cmdList;
 
-    public CmdBroker(List<IExeCmd> cmdList){
+    public CmdBroker(List<IExeCmd> cmdList) {
         this.cmdList = cmdList;
         printInit();
     }
@@ -35,9 +33,9 @@ public class CmdBroker implements IExeCmd {
 
     @Override
     public void printInit() {
-        try{
+        try {
             LOG.info("共有{}条规则", cmdList.size());
-        } catch (Exception e){
+        } catch (Exception e) {
             LOG.error("", e);
         }
     }
