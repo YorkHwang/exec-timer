@@ -1,10 +1,10 @@
-##Java Agent实现无代码侵入方法执行时长打印方案
+## Java Agent实现无代码侵入方法执行时长打印方案
 
-###一、背景
+### 一、背景
 
 项目运行发现接口执行慢，排查主要在于找出哪些方法执行慢，一般需要打印方法执行时长的日志。通过对执行时长的日志观察对比，最终可找到慢的原因。
 
-###二、方案对比
+### 二、方案对比
 |方案|优势|劣势|
 |---|---|---|
 |System.currentTimeMillis()相减|简单 |代码侵入且繁琐 |
@@ -15,7 +15,7 @@
 从开发一个开发测试和排查问题工具角度出发，使用Java Agent技术实现，能够不修改任何业务代码的前提下（零侵入），对所有的业务代码里的任意方法做时长统计。
 代码地址：https://github.com/YorkHwang/exec-timer
 
-###三、使用方法
+### 三、使用方法
 
 - 获取agent包
       方式一：直接下载jar：[exec-timer.jar](https://github.com/YorkHwang/exec-timer/blob/master/jar/exec-timer.jar)
