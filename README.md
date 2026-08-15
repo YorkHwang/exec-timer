@@ -1,3 +1,5 @@
+
+
 ## Java Agent实现无代码侵入方法执行时长打印方案
 
 ### 一、背景
@@ -32,7 +34,7 @@ VM加上如下参数
 
 - Jar启动方式
 
-javar -javaaget:[exec-timer.jar全路径]=@M|C|P-包全名|类全名$方法1,方法2...方法N -jar [可执行Jar的全路径]
+java -javaagent:[exec-timer.jar全路径]=@M|C|P-包全名|类全名$方法1,方法2...方法N -jar [可执行Jar的全路径]
 
 示例：
 java -javaagent:/code/open/exec-timer/target/exec-timer.jar=@P-com.ayg.contract.service -jar contract-web.jar
@@ -48,8 +50,4 @@ b.指定类所有方法打印执行时长： __@C-类全名__
 c.指定包下所有类所有方法打印执行时长： __@P-包名__ 
 示例：@M-com.ayg.contract.service
 
- __多个命令用双竖线||间隔__ 
-
-
-
-
+ __多个命令用双竖线||间隔__
